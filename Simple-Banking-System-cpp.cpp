@@ -318,8 +318,10 @@ void ShowAllClient()
 
     if (myfile.is_open())
     {
+        
         string stline;
         while (getline(myfile, stline))
+        if(stline!="")
             vClients.push_back(stline);
 
         myfile.close();
