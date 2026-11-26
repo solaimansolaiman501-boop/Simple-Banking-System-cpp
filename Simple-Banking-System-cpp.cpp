@@ -310,14 +310,14 @@ void MainMenuBack()
 {
     cout << "\nPress any ket to go back to main menu screen...";
 
-    system("pause > nul ");
+    system("pause > nul");
     MainMenuScreen();
 }
 
 void TransactionMenuBack()
 {
     cout << "press any key to go back to Transaction menu..";
-    system("pause>0");
+    system("pause > nul");
     PerformTransactionsScreen();
 }
 
@@ -451,7 +451,7 @@ void DeleteClientByAccountNumber()
     {
         cout << "the following are the client details : \n";
         PrintClient(client);
-        cout << "\nAre you sure You want to delete this client ? " << endl;
+        cout << "\nAre you sure You want to delete this client ?(y/n):" << endl;
         cin >> Answer;
         if (Answer=='y'||Answer=='Y')
         {
@@ -512,7 +512,7 @@ void UpdateClientByAccountNumber()
     {
         cout << "\nthe following are the client details : \n\n";
         PrintClientCard(client);
-        cout << "\nAre you sure You want to Update this client ? " << endl;
+        cout << "\nAre you sure You want to Update this client ?(y/n) :" << endl;
         cin >> Answer;
         if (tolower(Answer)=='y')
         {
@@ -652,8 +652,15 @@ void WithDrawFunc()
     double ammount = 0;
     cout << "Please Enter WithDraw ammount :";
     cin >> ammount;
+    while ( ammount >= client.AccountBalance )
+    {
+        cout << "\nammount Exceeds the balance, you can withdraw up to :" 
+            << client.AccountBalance << endl;
+        cin >> ammount;
+    }
+
     char answer = 'n';
-    cout << "\nare you sure you want to perform this transaction ?";
+    cout << "\nare you sure you want to perform this transaction ?(y/n)";
     cin >> answer;
     if (answer == 'y' || answer == 'Y')
     {
@@ -775,6 +782,6 @@ void MainMenuScreen()
 int main()
 {
     MainMenuScreen();
-    system("pause > nul ");
+    system("pause > nul");
     return 0;
 }
