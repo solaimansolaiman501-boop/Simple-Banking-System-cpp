@@ -1,37 +1,39 @@
-# 🏦 Simple Banking System
+# 🏦 Simple Banking System (C++)
 
-![C++](https://shields.io)
-![Visual Studio](https://shields.io)
-![Platform](https://shields.io)
-
-A lightweight, file-driven console application written in *C++* that simulates core banking operations. Designed with clean procedural architecture and persistent text-file storage (Clients.txt) to ensure data integrity across sessions.
+A console-based Banking Management System written in *C++* using procedural programming and file handling (Clients.txt) to store and manage client records persistently.
 
 ---
 
-## 📋 Core Functionalities
+## ✨ Features
 
-| Operation | Description |
-| :--- | :--- |
-| *📋 Show Client List* | Renders all stored client records in a structured console table, with graceful handling for empty states. |
-| *➕ Add New Client* | Validates account uniqueness and appends new client records to storage. |
-| *🗑️ Delete Client* | Performs safe record removal with user confirmation before rewriting data. |
-| *✏️ Update Client Info* | Modifies existing client credentials (PIN, Name, Phone, Balance) seamlessly. |
-| *🔍 Find Client* | Retrieves and displays specific client details using their unique Account Number. |
+### 📋 Main Menu (Client Management)
+- *Show Client List:* Display all registered clients and their account details in a formatted table.
+- *Add New Client:* Register new clients with unique account number validation.
+- *Delete Client:* Remove existing client records safely with confirmation prompts.
+- *Update Client Info:* Modify client details (Pin Code, Name, Phone, Balance).
+- *Find Client:* Search for any client quickly using their Account Number.
 
----
-
-## ⚙️ Technical Highlights
-* *Persistent Storage:* Custom serialization and deserialization of structs (SdataClient) using #//# delimiters via fstream.
-* *Data Management:* Efficient in-memory manipulation using std::vector before syncing changes back to disk.
-* *Clean Modular Design:* Separation of concerns across input validation, file I/O, and UI rendering functions.
+### 💳 Transactions Menu (New Update)
+A dedicated transactions module added to handle financial operations seamlessly:
+- *Deposit:* Add funds to a specific client's account and update the balance immediately in Clients.txt.
+- *Withdraw:* Deduct funds from a client's account with balance validation to prevent overdrafts.
+- *Total Balances:* View a summary table of all client balances along with the total bank balance.
 
 ---
 
-## 🚀 Getting Started
+## 🛠️ Technologies & Concepts Used
+- *Language:* C++
+- *Data Storage:* Text File Handling (fstream with custom #//# record delimiters)
+- *Data Structures:* struct, vector, enum
+- *Architecture:* Modular functional programming
 
-1. *Clone the repository:*
+---
+
+## 🚀 How to Run
+1. Clone the repository:
    bash
    git clone https://github.com
    
-2. *Open the solution:* Launch Simple-Banking-System-cpp.slnx in *Visual Studio*.
-3. *Compile & Run:* Press Ctrl + F5 to build and execute the application.
+2. Open the .sln or .cpp file in *Visual Studio* (or any C++ IDE).
+3. Ensure Clients.txt is located in the same directory as the source .cpp file.
+4. Build and run the project (Ctrl + F5).
